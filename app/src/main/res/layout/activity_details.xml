@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.DetailsActivity"
+    android:background="#ffff">
+
+    <android.support.design.widget.AppBarLayout
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:id="@+id/appbarlayout_id">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/collapsingtoolbar_id"
+            app:layout_scrollFlags="exitUntilCollapsed|scroll"
+            app:title="Anime Title"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginEnd="64dp"
+            >
+
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                android:theme="@style/ThemeOverlay.AppCompat.Light">
+            </android.support.v7.widget.Toolbar>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                >
+
+
+                <ImageView
+                    android:layout_width="170dp"
+                    android:layout_height="250dp"
+                    android:id="@+id/aa_thumbnail"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="8dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/aa_anime_name"
+                        android:text="Anime Title"
+                        android:textStyle="bold"
+                        android:textSize="20sp"/>
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Category"
+                        android:id="@+id/aa_categorie"
+                        />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/aa_rating"
+                        android:text="0.0"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/rating_background"
+                        android:textColor="#fff"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:drawableLeft="@drawable/ic_star_black_24dp"
+                        android:paddingRight="5dp"/>
+
+                  <com.github.ivbaranov.mfb.MaterialFavoriteButton
+                      android:id="@+id/favButton"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      app:mfb_type="heart"
+                      app:mfb_size="65"
+                      />
+
+                    <TextView
+                        android:id="@+id/playTvId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@color/textColorPrimary"
+                        android:layout_marginTop="10dp"
+                        android:textSize="16dp"
+                        android:layout_margin="5dp"
+                        android:drawablePadding="5dp"
+                        android:clickable="true"
+                        android:drawableLeft="@drawable/ic_play_circle_filled_black_24dp"
+                        android:text="Play Trailer"
+                        android:background="@android:color/transparent"
+                        />
+                    <TextView
+                        android:id="@+id/playTvIdTemp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Play Trailer"
+                        android:visibility="gone"
+                        android:background="@android:color/transparent"
+                        />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:padding="16dp"
+        android:overScrollMode="never">
+
+        <TextView
+            android:id="@+id/aa_description"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Anime Description"
+            android:textColor="@android:color/black"
+            android:textSize="17sp"
+            android:typeface="normal"
+            app:fontFamily="@font/merriweather_sans" />
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>
