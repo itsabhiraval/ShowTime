@@ -64,7 +64,7 @@ public class FavItemAdapter extends RecyclerView.Adapter<FavItemAdapter.MyViewHo
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        @BindView(R.id.anime_name)
+        @BindView(R.id.movie_name)
         TextView tv_name ;
         @BindView(R.id.rating) TextView tv_rating ;
         @BindView(R.id.studio) TextView tv_studio ;

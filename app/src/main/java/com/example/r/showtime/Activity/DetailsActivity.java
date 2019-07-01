@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -44,20 +45,18 @@ import retrofit2.Response;
 
 public class DetailsActivity extends AppCompatActivity {
 
-    @BindView(R.id.aa_anime_name)
+    @BindView(R.id.movie_title)
     TextView tv_title;
-    @BindView(R.id.aa_description)
+    @BindView(R.id.movie_description)
     TextView tv_desc;
-    @BindView(R.id.aa_rating)
+    @BindView(R.id.movie_rating)
     TextView tv_rating;
-    @BindView(R.id.aa_thumbnail)
+    @BindView(R.id.movie_thumbnail)
     ImageView img;
-    @BindView(R.id.aa_categorie)
+    @BindView(R.id.movie_categorie)
     TextView tv_release;
     @BindView(R.id.favButton)
     MaterialFavoriteButton favoriteButton;
-//    @BindView(R.id.fav_btn)
-//    ImageButton imgBtnFav;
     @BindView(R.id.playTvId)
     TextView tv_play;
     @BindView(R.id.playTvIdTemp)
@@ -85,6 +84,7 @@ public class DetailsActivity extends AppCompatActivity {
         if (intentThatStartedThisActivity.hasExtra("movies")) {
             temp=0;
             movie = getIntent().getParcelableExtra("movies");
+            //Bundle b=ActivityOptionsCompat.makeSceneTransitionAnimation()
             name = movie.getOriginalTitle();
             description = movie.getOverview();
             release = movie.getReleaseDate();
@@ -160,11 +160,8 @@ public class DetailsActivity extends AppCompatActivity {
                 public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite) {
                     if(favorite==true)
                     {
-//                        SharedPreferences.Editor editor = getSharedPreferences("com.example.r.showtime", MODE_PRIVATE).edit();
-//                        editor.putBoolean("Favorite Added", true);
-//                        editor.commit();
                         addFav();
-                        Snackbar.make(buttonView, "Added to Favorite",
+                        Snackbar.make(buttonView, "Added to Favorite list",
                                 Snackbar.LENGTH_SHORT).show();
                     }
                     else {
@@ -172,7 +169,7 @@ public class DetailsActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = getSharedPreferences("com.example.r.showtime", MODE_PRIVATE).edit();
                         editor.putBoolean("Favorite Removed", true);
                         editor.commit();
-                        Snackbar.make(buttonView, "Removed from Favorite",
+                        Snackbar.make(buttonView, "Removed from Favorite list",
                                 Snackbar.LENGTH_SHORT).show();
                     }
                 }
@@ -184,18 +181,12 @@ public class DetailsActivity extends AppCompatActivity {
                 public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite) {
                     if(favorite)
                     {
-//                        SharedPreferences.Editor editor = getSharedPreferences("com.example.r.showtime", MODE_PRIVATE).edit();
-//                        editor.putBoolean("Favorite Added", true);
-//                        editor.commit();
                         addFav();
                         Snackbar.make(buttonView, "Added to Favorite",
                                 Snackbar.LENGTH_SHORT).show();
                     }
                     else {
                         deleteFav();
-//                        SharedPreferences.Editor editor = getSharedPreferences("com.delaroystudios.movieapp.DetailActivity", MODE_PRIVATE).edit();
-//                        editor.putBoolean("Favorite Removed", true);
-//                        editor.commit();
                         Snackbar.make(buttonView, "Removed from Favorite",
                                 Snackbar.LENGTH_SHORT).show();
                     }
@@ -259,7 +250,6 @@ public class DetailsActivity extends AppCompatActivity {
         favorite.setImageUrl(image_url);
         favorite.setReleaseDate(release);
         AppDatabase.getAppDatabase(getApplicationContext()).favoriteDAO().delete(favorite);
-
     }
 
     private void addFav()

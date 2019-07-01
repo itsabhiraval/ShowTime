@@ -43,34 +43,39 @@
                 <ImageView
                     android:layout_width="170dp"
                     android:layout_height="250dp"
-                    android:id="@+id/aa_thumbnail"/>
+                    android:id="@+id/movie_thumbnail"
+                    android:transitionName="transition"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_margin="8dp">
+                    android:layout_margin="8dp"
+                    >
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/aa_anime_name"
-                        android:text="Anime Title"
+                        android:id="@+id/movie_title"
+                        android:text="Movie Title"
                         android:textStyle="bold"
-                        android:textSize="20sp"/>
+                        android:textSize="20sp"
+                        android:layout_marginLeft="10dp"
+                        />
 
                     <TextView
                         android:layout_marginTop="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Category"
-                        android:id="@+id/aa_categorie"
+                        android:id="@+id/movie_categorie"
+                        android:layout_marginLeft="10dp"
                         />
 
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/aa_rating"
+                        android:id="@+id/movie_rating"
                         android:text="0.0"
                         android:layout_marginTop="15dp"
                         android:background="@drawable/rating_background"
@@ -78,31 +83,48 @@
                         android:textSize="15sp"
                         android:textStyle="bold"
                         android:drawableLeft="@drawable/ic_star_black_24dp"
-                        android:paddingRight="5dp"/>
+                        android:paddingRight="5dp"
+                        android:layout_marginLeft="10dp"
+                       />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
+    <com.github.ivbaranov.mfb.MaterialFavoriteButton
+        android:id="@+id/favButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:mfb_type="heart"
+        app:mfb_size="64"
+        />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add to favorite"
+        android:gravity="start"
+        android:layout_marginLeft="4dp"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="16dp"
+        />
+</LinearLayout>
 
-                  <com.github.ivbaranov.mfb.MaterialFavoriteButton
-                      android:id="@+id/favButton"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      app:mfb_type="heart"
-                      app:mfb_size="65"
-                      />
 
                     <TextView
                         android:id="@+id/playTvId"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="@color/textColorPrimary"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
-                        android:textSize="16dp"
-                        android:layout_margin="5dp"
-                        android:drawablePadding="5dp"
+                        android:background="@android:color/transparent"
                         android:clickable="true"
                         android:drawableLeft="@drawable/ic_play_circle_filled_black_24dp"
+                        android:drawablePadding="5dp"
+                        android:gravity="center"
                         android:text="Play Trailer"
-                        android:background="@android:color/transparent"
-                        />
+                        android:textColor="@color/textColorPrimary"
+                        android:textSize="16dp" />
                     <TextView
                         android:id="@+id/playTvIdTemp"
                         android:layout_width="wrap_content"
@@ -111,6 +133,7 @@
                         android:visibility="gone"
                         android:background="@android:color/transparent"
                         />
+
                 </LinearLayout>
 
 
@@ -131,10 +154,10 @@
         android:overScrollMode="never">
 
         <TextView
-            android:id="@+id/aa_description"
+            android:id="@+id/movie_description"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Anime Description"
+            android:text="Description"
             android:textColor="@android:color/black"
             android:textSize="17sp"
             android:typeface="normal"

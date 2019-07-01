@@ -1,6 +1,5 @@
 package com.example.r.showtime.Services;
 
-import com.example.r.showtime.Activity.DetailsActivity;
 import com.example.r.showtime.Model.MoviesResponse;
 import com.example.r.showtime.Model.TVResponse;
 import com.example.r.showtime.Model.TrailerResponse;
@@ -13,13 +12,13 @@ import retrofit2.http.Query;
 public interface MovieService {
 
     @GET("movie/popular")
-    Call<MoviesResponse> getPopularMovies(@Query("api_key") String apiKey);
+    Call<MoviesResponse> getPopularMovies(@Query("api_key") String apiKey,@Query("page") int pageIndex);
 
     @GET("movie/top_rated")
     Call<MoviesResponse> getTopRatedMovies(@Query("api_key") String apiKey);
 
     @GET("tv/popular")
-    Call<TVResponse> getPopularTV(@Query("api_key") String apiKey);
+    Call<TVResponse> getPopularTV(@Query("api_key") String apiKey,@Query("page") int pageIndex);
 
     @GET("movie/{movie_id}/videos")
     Call<TrailerResponse> getMovieVideos(@Path("movie_id") int id, @Query("api_key") String apiKey);

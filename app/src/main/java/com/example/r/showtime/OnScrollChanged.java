@@ -1,17 +1,17 @@
 package com.example.r.showtime;
 
 import android.support.annotation.NonNull;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 public abstract class OnScrollChanged extends RecyclerView.OnScrollListener {
 
-    LinearLayoutManager layoutManager;
+    GridLayoutManager layoutManager;
 
-    public OnScrollChanged() {
-        super();
+    public OnScrollChanged(GridLayoutManager layoutManager) {
+        this.layoutManager = layoutManager;
     }
-
 
     @Override
     public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {

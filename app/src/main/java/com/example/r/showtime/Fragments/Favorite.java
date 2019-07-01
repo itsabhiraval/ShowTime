@@ -30,7 +30,7 @@ public class Favorite extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v=inflater.inflate(R.layout.fragment_one,container,false);
+        v=inflater.inflate(R.layout.fragment_two,container,false);
         recyclerView=v.findViewById(R.id.recyclerviewId);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
